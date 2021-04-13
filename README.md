@@ -9,7 +9,13 @@ The aim of this project is to, given molecules of DNA or proteins that are inter
 
 A conventional approach to superimposing a group of structures is to translate and rotate the structures so that the arithmetic average of the coordinate differences of the corresponding atoms in the structures, called the root-mean-square deviation of the structures, is minimized. Here, the best superimposition of the structures is obtained when the minimal possible root-mean-square deviation is reached. The latter is called the RMSD value of the structures and is used as a measure of the similarity of the structures. The RMSD can be calculated for all the atoms in the structures or a specifically selected subset of the atoms such as the set of all Cα atoms. The latter approach aligns only the specified subset of atoms in the structures, without counting all atoms equally in the calculations.
 
+
 ### OTHER APPROACHES 
+This program uses the common way to build a macro complex, that as we have explained before is called the root-mean-square deviation (RMSD). But there are other approaches that we will briefly explain: 
+
+G-RMSD: Generalized Root Mean Square Deviation (G-RMSD) method calculates the minimal RMSD value of two atomic structures by optimal superimposition. G-RMSD is not restricted to systems with an equal number of atoms to compare or a unique atom mapping between two molecules. The method can handle any type of chemical structures, including transition states and structures which cannot be explained only with valence bond (VB) theory (non-VB structures). It requires only Cartesian coordinates for the structures.
+Dynamically weighted RMSD: This approach takes into account the weight of the different molecules. Different atoms may have different properties and they should be compared differently. For this reason, when superimposed with RMSD, the coordinate differences of different atoms should be evaluated with different weights. This method the thermal motions of the atoms can be obtained from several sources such as the mean-square fluctuations that can be estimated by Gaussian network model analysis. 
+This does not mean that one approach is better than the other, all approaches have their pros and cons, but for future versions of the program it is important to take into account all possible solutions. 
 
 ## INSTALLATION
 ## REQUERIMENTS
