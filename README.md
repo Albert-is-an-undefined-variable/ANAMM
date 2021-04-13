@@ -15,7 +15,7 @@ RMSD values are presented in Å and calculated by where the averaging is perform
 
 | No Changes | Re-centered | Rotated | 
 
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- |
 | ![image](https://github.com/Albert-is-an-undefined-variable/Complexmod/img/no_centered.png) | ![image](https://user-images.githubusercontent.com/78853932/114625602-c6e5e900-9cb2-11eb-8f08-08965f81e428.png) | ![image](https://user-images.githubusercontent.com/78853932/114625626-d2391480-9cb2-11eb-9cc6-07f0a5aab7da.png) |
 
 
