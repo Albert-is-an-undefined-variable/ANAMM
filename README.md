@@ -15,7 +15,7 @@ RMSD values are presented in Å and calculated by where the averaging is perform
 
 | No Changes | Re-centered | Rotated | 
 | ------------- | ------------- | ------------- |
-| hola | ![image](https://user-images.githubusercontent.com/78853932/114625602-c6e5e900-9cb2-11eb-8f08-08965f81e428.png) | ![image] (./img/rotated.png) |
+| hola | ![image](https://user-images.githubusercontent.com/78853932/114625602-c6e5e900-9cb2-11eb-8f08-08965f81e428.png) | ![image](./img/rotated.png) |
 
 
 ### LIMITATIONS
