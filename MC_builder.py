@@ -1,13 +1,10 @@
 import Bio.PDB
-import sys
-import string
 import os
 import argparse
 import timeit
 import logging
 import re
 from macrocomplex_functions import *
-# alias chimera="~/.local/UCSF-Chimera64-1.13.1/bin/chimera"
 
 start = timeit.default_timer()
 
