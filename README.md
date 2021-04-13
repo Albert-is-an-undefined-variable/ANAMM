@@ -15,7 +15,7 @@ RMSD values are presented in Å and calculated by where the averaging is perform
 
 | No Changes | Re-centered | Rotated | 
 | ------------- | ------------- | ------------- |
-| hola | ![image](https://user-images.githubusercontent.com/78853932/114625602-c6e5e900-9cb2-11eb-8f08-08965f81e428.png) | ![image](./img/rotated.png) |
+| ![image](./img/no_center.png) | ![image](./img/recentered.png)) | ![image](./img/rotated.png) |
 
 
 ### LIMITATIONS
@@ -33,7 +33,7 @@ This program uses the common way to build a macro complex, that as we have expla
 3. **RMS of dihedral angles**: An approach complementary to Cartesian backbone RMSD is based on the representation of the protein structure in the internal coordinates that include bond lengths, planar bond angles, and dihedral torsion angles.
 4. **Global Distance Test (GDT)**: As described above, RMSD heavily depends on the precise superimposition of the two structures and is strongly affected by the most deviated fragments. GDT ( used for CASP model evaluation) performs multiple superimpositions, each including the largest superimposable subset for one of the residues,  between the two structures. The output of a GDT calculation represents a curve that plots the distance cutoff against the percent of residues that can be fitted under this distance cutoff. A larger area under the curve corresponds to more accurate prediction.
 
-This does not mean that one approach is better than the other, all approaches have their pros and cons, but for future versions of the program it is important to take into account all possible solutions, because some of this approaches could solve some actual limitations that our tool presents. 
+This does not mean that one approach is better than the other. All approaches have their pros and cons, but for future versions of the program it is important to take into account all possible improvements, because some of this approaches could solve some actual limitations that our tool presents. 
 
 ## INSTALLATION
 ## REQUERIMENTS
