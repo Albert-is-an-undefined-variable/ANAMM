@@ -13,10 +13,10 @@ A conventional approach to superimposing a group of structures is to translate a
 
 RMSD values are presented in Å and calculated by where the averaging is performed over the n pairs of equivalent atoms and di is the distance between the two atoms in the i-th pair. In DNA interactions we can use P, C2′ and C4' atoms. All three DNA atoms appear in any nucleotide, regardless of type (A, C, G or T). The P atom is situated in the DNA backbone, C2′ in the DNA sugar ring, and C4' is in the nucleobase. This allows for easy computations of the RMSD between DNA molecules containing the same number of nucleotides but different sequences. In our particular case, this program calculates the RMSD of the Cα atoms if there is a protein-protein interaction, and the RMSD of the C4' for the DNA/RNA interactions.
 
-| Primer encabezado | Segundo encabezado |
+| No Changes | Re-centered | Rotated | 
 | ------------- | ------------- |
-| Contenido de la celda  | Contenido de la celda  |
-| Contenido de la celda  | Contenido de la celda  |
+| ![image](https://user-images.githubusercontent.com/78853932/114625563-b9306380-9cb2-11eb-9ba0-f4683f53cbff.png)  | ![image](https://user-images.githubusercontent.com/78853932/114625602-c6e5e900-9cb2-11eb-8f08-08965f81e428.png)  | ![image](https://user-images.githubusercontent.com/78853932/114625626-d2391480-9cb2-11eb-9cc6-07f0a5aab7da.png) |
+
 
 ### LIMITATIONS
 This approach have some limitations: 
