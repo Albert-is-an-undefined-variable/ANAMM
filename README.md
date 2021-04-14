@@ -42,4 +42,15 @@ This does not mean that one approach is better than the other. All approaches ha
 ## INSTALLATION
 ## REQUERIMENTS
 ## ALGORITHM
+### FUTURE CODE IMPROVMENT
+- Functions could be further spitted
+- Use of one liners (the pythonic way)
+- Use of generator functions instead of lists (memory costs)
+- Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier)
 ## EXAMPLES
+## REFERENCES 
+We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
+- Bottaro, S., Di Palma, F., & Bussi, G. (2014). The role of nucleobase interactions in RNA structure and dynamics. Nucleic Acids Research, 42(21), 13306–13314.
+- Kufareva, I., & Abagyan, R. (2012). Methods of protein structure comparison. Methods in Molecular Biology (Clifton, N.J.), 857, 231–257.
+- Wu, D., & Wu, Z. (2010). Superimposition of protein structures with dynamically weighted RMSD. Journal of Molecular Modeling, 16(2), 211–222.
+- 
