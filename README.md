@@ -11,11 +11,15 @@ A conventional approach to superimposing a group of structures is to translate a
 
 ![image](https://user-images.githubusercontent.com/78853932/114619446-de20d880-9caa-11eb-8fec-dd53153a2be9.png)
 
-RMSD values are presented in Å and calculated by where the averaging is performed over the n pairs of equivalent atoms and di is the distance between the two atoms in the i-th pair. In DNA interactions we can use P, C2′ and C4' atoms. All three DNA atoms appear in any nucleotide, regardless of type (A, C, G or T). The P atom is situated in the DNA backbone, C2′ in the DNA sugar ring, and C4' is in the nucleobase. This allows for easy computations of the RMSD between DNA molecules containing the same number of nucleotides but different sequences. In our particular case, this program calculates the RMSD of the Cα atoms if there is a protein-protein interaction, and the RMSD of the C4' for the DNA/RNA interactions.
+RMSD values are presented in Å and calculated by where the averaging is performed over the n pairs of equivalent atoms and di is the distance between the two atoms in the i-th pair. In DNA interactions we can use P, C2′ and C4' atoms. All three DNA atoms appear in any nucleotide, regardless of type (A, C, G or T). The P atom is situated in the DNA backbone, C2′ in the DNA sugar ring, and C4' is in the nucleobase. This allows for easy computations of the RMSD between DNA molecules containing the same number of nucleotides but different sequences. In our particular case, ComplexMod calculates the RMSD of the Cα atoms if there is a protein-protein interaction, and the RMSD of the C4' for the DNA/RNA interactions. In order to understand better this technique, we would make an example: 
 
 | No Changes | Re-centered | Rotated | 
 | ------------- | ------------- | ------------- |
-| ![image](./img/no_center.png) | ![image](./img/recentered.png)) | ![image](./img/rotated.png) |
+| ![image](./img/no_center.png) | ![image](./img/recentered.png) | ![image](./img/rotated.png) |
+
+You have molecule A and B and want to calculate the structural difference between those two. If you just calculate the RMSD straight-forward you might get a too big of a value as seen below. You would need to first recenter the two molecules and then rotate them unto each other to get the true minimal RMSD. 
+
+After the superimposition is done, and have a reasonable RMSD, we are interested in the chain of the sample structure that actually has not been superimposed, as we are trying to build a multi-chain complex. Because of the superimposition, the atom coordinates of this non-superimposed chain has changed, thus, they have rotated towards the reference structure. To accept this new rotation, we must check whether the atoms of this chain clashes with the atoms of any of the chains of the reference structure. Clashes are unfavorable interactions where atoms are too close together. They can be calculated using a K-dimensional tree data structure (KDTree), which uses N-dimensional vectors to find all points within a radius of a given point. Thus, we can know how many atoms have at least one atom within radius of center. In a real proteins, clashes cannot happen, because if the distance between two atoms is minimum, the energy is maximum. For instance, repulsive forces prevail in Van Der Waals interactions, due to the collision of external electron clouds, making this interaction unfavorable. If the number of clashes is below a given threshold, we can allow this new rotation and add the chain in the reference structure.
 
 
 ### LIMITATIONS
