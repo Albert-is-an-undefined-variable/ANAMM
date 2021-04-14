@@ -50,12 +50,11 @@ The following versions of packages/modules must be installed in order to run our
 - Re v2.2.1
        
 ### OPTIONAL (VERY RECOMMENDED) 
-In order to be able to use the optimization algorithm, the user must download modeller package. MODELLER is a package that is used for homology or comparative modeling of protein three-dimensional structures. You have to perform the following steps: 
+In order to be able to use the optimization algorithm, the user must download modeller package. MODELLER is a package that is used for homology or comparative modeling of protein three-dimensional structures. To download MODELLER using conda you have to do the following: 
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
-}
+conda config --add channels salilab
+conda install modeller
 ```
 
 ## ALGORITHM
