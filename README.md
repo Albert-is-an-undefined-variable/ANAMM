@@ -41,6 +41,23 @@ This does not mean that one approach is better than the other. All approaches ha
 
 ## INSTALLATION
 ## REQUERIMENTS
+### MANDATORY
+The following versions of packages/modules must be installed in order to run our program properly:
+- Python v3.6.7 (Sys, Os, Timeit)
+- Biopython v1.73
+- Argparse v1.1
+- Logging v0.5.1.2
+- Re v2.2.1
+       
+### OPTIONAL (VERY RECOMMENDED) 
+In order to be able to use the optimization algorithm, the user must download modeller package. MODELLER is a package that is used for homology or comparative modeling of protein three-dimensional structures. You have to perform the following steps: 
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+
 ## ALGORITHM
 ### FUTURE CODE IMPROVMENT
 - Functions could be further spitted
