@@ -56,7 +56,13 @@ In order to be able to use the optimization algorithm, the user must download mo
 conda config --add channels salilab
 conda install modeller
 ```
-After that you have to visit https://salilab.org/modeller/
+After that you have to visit:  https://salilab.org/modeller/
+
+There, you have to ask for a MODELLER license key. It is recommended to give your official academic email address rather than a home email address. This license key is free only to academic non-profit institutions. Once you have obtained the license, you have to go to the following file and add it: 
+
+```
+/path_to_modeller/../../modeller/config.py
+```
 
 ## ALGORITHM
 ### FUTURE CODE IMPROVMENT
