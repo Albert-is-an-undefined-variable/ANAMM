@@ -56,6 +56,7 @@ In order to be able to use the optimization algorithm, the user must download mo
 conda config --add channels salilab
 conda install modeller
 ```
+After that you have to visit https://salilab.org/modeller/
 
 ## ALGORITHM
 ### FUTURE CODE IMPROVMENT
