@@ -159,7 +159,7 @@ This structure is a T State Haemoglobin with Oxygen Bound at All Four Haems. The
 We have made these steps to achieve the final structure. The several input files are in the examples folder in case you want to repeat the steps: 
 
 ```
-> MC_builder -i 1gzx/ -out -1gzx_out/ -opt
+> MC_builder -i examples/1gzx/ -out -1gzx_out/ -opt
 ```
 In this case we have added the optimize argument. What this means is that after the creation of the pdb file, the program would optimize it using MODELLER package and it will return an optimize.pdb
 
@@ -175,7 +175,7 @@ ANAMM has a good performance with this example. The optimization file and the ou
 Structure of yeast RNA polymerase III elongation complex. Transcription of genes encoding small structured RNAs such as transfer RNAs, spliceosomal U6 small nuclear RNA and ribosomal 5S RNA is carried out by RNA polymerase III (Pol III), the largest yet structurally least characterized eukaryotic RNA polymerase. 
 
 ```
-> MC_builder.py -i 5fj8/ -out 5fj8_out/ -sto 17 -opt
+> MC_builder.py -i examples/5fj8/ -out 5fj8_out/ -sto 17 -opt
 ```
 
 -ste argument allows you to add the stoichiometry of the model representing the total number of chains that you want from your macrocomplex model. The -opt argument is to optimize the model and the energy. In the following pictures we would put only the optimize model: 
