@@ -3,18 +3,16 @@ https://user-images.githubusercontent.com/74412173/114835586-0525fa00-9dd2-11eb-
 
 # ANAMM (Amino-Nucleic Acid Macrocomplex Modeler)
 ## TABLE OF CONTENTS
-- [DESCRIPTION](##DESCRIPTION)
-- [BACKGROUND](##BACKGROUND)
-- [LIMITATIONS](###LIMITATIONS)
 
 - [DESCRIPTION](#DESCRIPTION)
 - [BACKGROUND](#BACKGROUND)
-  * [LIMITATIONS](#LIMITATIONS
-  * [1.3 Acronyms](#13-acronyms)
-  * [1.4 References](#14-references)
-    + [1.4.1 Internal References](#141-internal-references)
-    + [1.4.2 External References](#142-external-references)
-  * [1.5 Overview](#15-overview)
+  * [LIMITATIONS](#LIMITATIONS)
+  * [OTHER APPROACHES ](#OTHER-APPROACHES)
+- [INSTALLATION](#INSTALLATION)
+- [REQUERIMENTS](#REQUERIMENTS)
+  * [MANDATORY](#MANDATORY)
+  * [OPTIONAL (HIGHLY RECOMMENDED)](#OPTIONAL-(HIGHLY-RECOMMENDED))
+
 
 
 
