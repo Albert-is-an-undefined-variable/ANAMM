@@ -73,7 +73,7 @@ There, you have to ask for a MODELLER license key. It is recommended to give you
 ### 1GZX
 | Standard Output | Optimize Output |
 | ------------- | ------------- | 
-| ![image](./img/1gzx.pdb) | ![image](./img/1gzx_optimized.pdb) | 
+| ![image](./img/1gzx.png) | ![image](./img/1gzx_optimized.png) | 
 
 ### 5FJ8
 | No Changes | Re-centered | Rotated | 
