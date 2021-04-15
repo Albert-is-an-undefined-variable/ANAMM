@@ -111,7 +111,7 @@ There, you have to ask for a MODELLER license key. It is recommended to give you
 ```
 /path_to_modeller/../../modeller/config.py
 ```
-If you wan tto download it without using conda, you can visit the modeller package website to further instructions. 
+If you want to download it without using conda, you can visit the modeller package website to further instructions. 
 
 ## ALGORITHM
 ### WORKFLOW
