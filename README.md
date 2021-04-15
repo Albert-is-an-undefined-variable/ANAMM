@@ -101,6 +101,10 @@ If you wan tto download it without using conda, you can visit the modeller packa
 
 ## ALGORITHM
 ### WORKFLOW
+ANAMM builds a macro-molecular complex given a set of binary protein-protein or RNA/DNA-protein interactions. This approach is performed by means of a recursive function. When the program is executed, the recursive function will loop iteratively through the list of files present in the input directory. Then, It will superimpose two chains of the new file against one of the chains of the reference structure searching for the best superimposition model.
+After that, in each iteration it will add a chain and it will repeat the process until it builds a macro complex. This would happen when the number of chains of the complex equals the number of chains specified in the stoichiometry argument. If the user do not add this argument, ANAMM will stop after all the files have been processed once without adding any new chains to the complex. 
+It is important to add the stoichiometry, ```-sto```argument if we know the final number of chains of the macro complex because it will improve the efficiency of the algorithm. And other argument that is important to add is the optimize, ```-opt```, argument. This would allow to perform an improvement of the macro complex output file. This option would not modify the workflow of the algorithm because it is launched once the program has already obtained the pdb final file. 
+
 ### ARGUMENTS
 Command-line arguments
 -  ```-h```, ```--help```: this flag will show the usage of the program as well as a description of what it does as well as an explanation of all the parameters it has and can modify or offer some information when executing the program.
