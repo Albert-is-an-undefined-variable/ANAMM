@@ -96,9 +96,26 @@ ANAMM has a good performance with this example. The optimization file and the ou
 
 
 ### 5FJ8
+Structure of yeast RNA polymerase III elongation complex. Transcription of genes encoding small structured RNAs such as transfer RNAs, spliceosomal U6 small nuclear RNA and ribosomal 5S RNA is carried out by RNA polymerase III (Pol III), the largest yet structurally least characterized eukaryotic RNA polymerase. 
+
+```
+> MC_builder.py -i 5fj8/ -out 5fj8_out/ -ste 17 -opt
+```
+
+-ste argument allows you to add the stoichiometry of the model representing the total number of chains that you want from your macrocomplex model. The -opt argument is to optimize the model and the energy. In the following pictures we would put only the optimize model: 
+
 | Standard Output | Optimize Output | 
 | ------------- | ------------- | 
 | ![image](./img/5FJ8.png) | ![image](./img/5FJ8_optimized.png) |
+
+The optimized model has reduced the energy of the model by 4500% in comparison with the ANAMM's standard output. In big models, the optimization argument is very useful as we can see. It is important to add the stoichiometry argument if we know the final number of chains of the macro complex, because the algorithm performs better with this argument. 
+
+In the pictures we can see that the RNA fits perfectly inside the RNA polymerase. Moreover, in the next figure, we can see that the DNA is opened due to the transcription process, where polymerase transcribes DNA into RNA. 
+
+| Transcription process | 
+| ------------- |
+| ![image](./img/5FJ8.png) |
+
 ## REFERENCES 
 We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
 - Bottaro, S., Di Palma, F., & Bussi, G. (2014). The role of nucleobase interactions in RNA structure and dynamics. Nucleic Acids Research, 42(21), 13306–13314.
