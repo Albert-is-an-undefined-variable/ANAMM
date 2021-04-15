@@ -11,10 +11,11 @@ from modeller.optimizers import conjugate_gradients, molecular_dynamics, actions
 
 
 def Key_atom_retriever(chain):
-	"""This function retrieves the key atom, CA in case of proteins and C4' in case of nucleic acids, to do the superimposition and also returns a
-	variable indicating the kind of molecule that that chain is: either DNA, RNA or PROTEIN
+	"""
+	This function retrieves the key atom (CA in proteins, C4' in case nucleic acids) and indicates the type of molecule
+	that the chain is and returns it as a variable.
 
-	Arguments:
+	Args:
 
 	chain (Bio.PDB.Chain.Chain): an instance of class chain
 
@@ -49,46 +50,40 @@ def Key_atom_retriever(chain):
 			atoms.append(res['C4\''])	#append C4' atoms to the list of atoms
 	return(atoms, molecule)		# Return all key atoms list and the type of molecule to which they belong
 
-def ID_creator(IDs, ID):
-	"""This function returns an ID for the new chain to be added to the complex. It generates a single character ID for the first
-	62 IDs, being all the uppercase, lowercase letters and digits, i.e., 26 + 26 + 10 = 62. Then, it generates two-character IDs,
-	by combining all the uppercase letters, generating up to 26**2 IDs, which is 676 new IDs. This is a total of 738 chain IDs. It
-	also needs a list with all the chain IDs, so it does not return an ID already present in the list of chain IDs already in the complex
+def chain_character_ID(ID_list, ID):
+	""" 
+	The function outputs new characters IDs to a chain that will be included into the macrocomplex. The function requires a list with the IDs of the already existing
+	chains to ensure that it does not generate an IDs that is already being used.
 
-	Arguments:
+	Args:
 
-	IDs (list): a list containing the IDs of all chains present in the building complex
-
-	ID (string): the ID that the chain has by default, i.e., the ID it has on the PDB file
+	ID_list (list): list containing the IDs of the building complex chains.
+	ID (string): the ID that the new chain has by default on the PDB file.
 
 	Returns:
 
-	ID (string): the new ID that is not present in the list of IDs
+	ID (string): A new ID for the chain that does not appear in the ID list.
 
 	"""
-	UP = list(string.ascii_uppercase)
-	LOW = list(string.ascii_lowercase)
-	DIG = list(string.digits)
-	alphabet = UP + LOW + DIG		#creates an alphabet containing all the possible characters that can be used as chain IDs
+	characters = list('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789')	#characters for IDs
 
-	if len(IDs) < 62:				#checks if the length of the lsit containing the IDs of all chains in the complex is smaller than 62
-		if ID not in IDs:			#checks if the ID by default of the chain is present on the IDs list
+	if len(ID_list) < 62:				#if the ID list of all the chains is smaller than 62, the new chains will receive a single character ID
+		if ID not in ID_list:			
 			return ID
-		elif ID in IDs:				#checks if the ID by default is indeed on the list
-			for i in range(0, len(alphabet)):		#loops through all the characters on the alphabet
-				if alphabet[i] not in IDs:			#checks if that character is not already taken as an ID
-					return alphabet[i]
-				else:								#if it is already an ID, keeps looping through the alphabet
+		elif ID in ID_list:				
+			for i in characters:		#loop through characters
+				if characters[i] not in ID_list:			
+					return characters[i]
+				else:								#keep looping if the ID is already found in the ID list
 					continue
-	elif len(IDs) >= 62:			#checks if the length of the lsit containing the IDs of all chains in the complex is greater than 62
-		for char1 in alphabet:
-			for char2 in alphabet:
-				ID = char1 + char2	#creates a 2 character ID by combining two uppercase letters
-				if ID not in IDs:	#checks if new ID is not on the list of IDs
+	elif len(ID_list) >= 62:			#if the ID list of all the chains is bigger than 62, the new chains will receive a two-character ID
+		for char1 in characters:
+			for char2 in characters:
+				ID = char1 + char2	#two-character ID
+				if ID not in ID_list:	
 					return ID
-				else:				#if it is indeed on the list, keeps loopting
+				else:				#keep looping if the ID is already found in the ID list
 					continue
-
 
 
 def optimize(pdb, pdb_path):
@@ -316,7 +311,7 @@ def MacrocomplexBuilder(ref_structure, files_list, it, not_added, command_argume
 			if present_chain is False:
 				logging.info("Chain %s superimposed with chain %s yields rotated chain %s which is not in the complex" %(chains[0],chains[1],chain_to_add.id))
 				chain_ids = [chain.id for chain in ref_structure[0].get_chains()]	#list containing IDs of all chains present in reference structure
-				ID = ID_creator(chain_ids, chain_to_add.id)
+				ID = chain_character_ID(chain_ids, chain_to_add.id)
 				chain_to_add.id = ID
 				ref_structure[0].add(chain_to_add)	#adds chain_to_add to the building macrocomplex structure
 				logging.info("Added Chain %s" % ID)
