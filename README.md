@@ -193,7 +193,7 @@ If the user wants to create a log file, he can run the following command:
 Structure of yeast RNA polymerase III elongation complex. Transcription of genes encoding small structured RNAs such as transfer RNAs, spliceosomal U6 small nuclear RNA and ribosomal 5S RNA is carried out by RNA polymerase III (Pol III), the largest yet structurally least characterized eukaryotic RNA polymerase. 
 
 ```
-> python3 MC_builder.py -i examples/5fj8/ -out 5fj8_out/ -sto 17 -opt
+> python3 MC_builder.py -i examples/5fj8/ -out 5fj8_out/ -st 17 -opt
 ```
 
 ```-st``` argument allows you to add the stoichiometry of the model representing the total number of chains that you want from your macrocomplex model. The -opt argument is to optimize the model and the energy. In the following pictures we would put only the optimize model: 
