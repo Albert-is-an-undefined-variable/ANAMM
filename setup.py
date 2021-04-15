@@ -3,7 +3,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 setup(
-    name='Macrocomplex Builder',
+    name='ANAMM',
     version='1.0',
     description='This program builds up and optimizes a model of protein macrocomplexes that can accept nucleic acids, given an imput of binary chains of the complex in pdb format',
     author='Mateusz Brodzik, Pol Ezquerra Condominas, Albert Garcia Valiente',
@@ -12,4 +12,4 @@ setup(
     packages=find_packages(),
     install_requires=['Biopython >= 1.78.0', 'argparse >= 1.1'],
     url='https://github.com/Albert-is-an-undefined-variable/ANNAM',
-    scripts=['MC_builder','functions', 'post_optimization.py'])
+    )
