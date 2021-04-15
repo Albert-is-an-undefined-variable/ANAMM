@@ -146,7 +146,7 @@ ANAMM has two different approaches to optimize the macrocomplex pdb:
 
 When the user call the script, this script would ask for the input pdb file. The pdb file must be in the same directory than the script. After that, it will optimize it.
 
-In these two different approaches, ANAMM creates different pdb files: It makes 5 pdb files during the optimization procedure and a final pdb file with the best optimization called **optimize.pdb**
+In these two different approaches, ANAMM creates different pdb files: It makes 5 pdb files during the optimization procedure and a final pdb file with the best optimization called **optimize.pdb**.
 
 ### CODE LIMITATIONS
 - ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it.
