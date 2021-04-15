@@ -19,6 +19,7 @@
   * [TUTORIAL](#TUTORIAL)
   * [1GZX](#1GZX)
   * [5FJ8](#5FJ8)
+- [CONCLUSIONS](#CONCLUSIONS)
 
 ## DESCRIPTION
 The function of this program is to reconstruct biological macrocomplexes. It can build them using protein-DNA/RNA interactions as well as protein-protein interactions. The input is a set of binary interactions and the desired number of chains of the target complex. Moreover, you can add extra arguments, as RMSD treshold. This program needs as input the folder where the input files are, and you have to select an output directory to save the output files. If you do not select the output folder, the program automatically will create one.
@@ -191,7 +192,15 @@ In the pictures we can see that the RNA fits perfectly inside the RNA polymerase
   <img src="https://github.com/Albert-is-an-undefined-variable/Complexmod/blob/main/img/DNA_OPEN.png" />
 </p>
 
+## CONCLUSIONS
 
+The purpose of this project (besides academical learning) is to fulfil an increasing need in the field of biomedicine, since predicting the fold of proteins can provide tools to develop cheaper and better therapeutic drug, among many applications. Although far from a "ready-to-use"  application, our program tries to show one of the possible pipelines that could be conducted in this matter. I must be highlighted, than new technologies based on machine learning approaches are taking over the field with outstanding results, outperforming approaches like ours a bit outdated.
+Our approach creates one "not-optimized model", but if optimization is selected 5 more models are generated giving a small sample of models inwhich the user can select among.
+
+It must be said that, although the program works well with the given examples and some other tested proteins, for files like 2O61 where many chains are involved (86), there is a recursion error that hinders the creation of the model.
+
+As a final remark, our non-previous knowledge on programming before this subject (time-consuming errors and many reboots during its development), and the still foggy features that this project should have had (like the different input file formats of the examples, or the not so clear pipeline to follow) may have influence in the obtained results.
+So far, we did our best
 
 ## REFERENCES 
 We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
