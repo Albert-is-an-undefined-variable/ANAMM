@@ -56,7 +56,7 @@ The following versions of packages/modules must be installed in order to run our
 - Biopython v1.78
 - Argparse v1.1
        
-### OPTIONAL (VERY RECOMMENDED) 
+### OPTIONAL (HIGHLY RECOMMENDED) 
 In order to be able to use the optimization algorithm, the user must download modeller package. MODELLER is a package that is used for homology or comparative modeling of protein three-dimensional structures. To download MODELLER using conda you have to do the following: 
 
 ```
@@ -73,7 +73,7 @@ There, you have to ask for a MODELLER license key. It is recommended to give you
 
 ## ALGORITHM
 ### LIMITATIONS
--ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
+- ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
 - Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this
 - ANAMM crashes if we have a final PDB macrocomplex bigger than 99.999 atoms because pdb file can not contain more than 99.999 atoms. If this happen, the stechiometry argument does not work. To solve that, we have create a post_optimize.py that allows the user optimize the final pdb in this particular case. This script can be used with any pdb that we want to improve. is highly recommended to use -ste argument to avoid this crash. 
 ### FUTURE CODE IMPROVMENT
