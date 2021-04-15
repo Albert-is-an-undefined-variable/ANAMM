@@ -188,10 +188,6 @@ The optimized model has reduced the energy of the model by 4500% in comparison w
 In the pictures we can see that the RNA fits perfectly inside the RNA polymerase. Moreover, in the next figure, we can see that the DNA is opened due to the transcription process, where polymerase transcribes DNA into RNA. 
 
 <p align="center">
-  <h3><br>Transcription </br></h3>
-</p> 
-
-<p align="center">
   <img src="https://github.com/Albert-is-an-undefined-variable/Complexmod/blob/main/img/DNA_OPEN.png" />
 </p>
 
