@@ -11,5 +11,5 @@ setup(
     long_description=open('README.md').read(),
     packages=find_packages()
     install_requires=['Biopython >= 1.78.0', 'argparse >= 1.1'],
-    url='https://github.com/Albert-is-an-undefined-variable/Complexmod',
-    scripts=['macrocomplex_builder.py', 'macrocomplex_functions.py'])
+    url='https://github.com/Albert-is-an-undefined-variable/ANNAM',
+    scripts=['MB_builder','functions', 'post_optimization.py'])
