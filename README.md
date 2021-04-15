@@ -114,7 +114,7 @@ The optimized model has reduced the energy of the model by 4500% in comparison w
 
 In the pictures we can see that the RNA fits perfectly inside the RNA polymerase. Moreover, in the next figure, we can see that the DNA is opened due to the transcription process, where polymerase transcribes DNA into RNA. 
 <p align="center">
-  <img src="./img/DNA_OPEN.png)" alt="Sublime's custom image"/>
+  <img src="./img/DNA_OPEN.png)" />
 </p>
 
 
