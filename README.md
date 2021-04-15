@@ -71,7 +71,7 @@ The package can be downloaded using the terminal, or the upper button to get as 
 ```
  git clone https://github.com/Albert-is-an-undefined-variable/ANAMM
 ```
-Now change to the programm directory:
+Now change to the program directory:
 ```
  cd ANAMM
 ```
@@ -79,7 +79,11 @@ Now proceed with the installation using pip3 (you must be inside the directory):
 ```
 pip3 install .
 ```
-If for some reason it does not work, you can install it via setup.py:
+To uninstall the program from the python libraries you may run the following command
+```
+pip3 uninstall ANAMM
+```
+If for some reason it does not work, you can install it via setup.py but mind that if this is used, in case you wanted to uninstall it you may have to do it manually:
 ```
  python3 setup.py install
 ```
