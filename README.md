@@ -92,6 +92,16 @@ If you wan tto download it without using conda, you can visit the modeller packa
 ## ALGORITHM
 ### WORKFLOW
 ### ARGUMENTS
+Command-line arguments
+-  ```-h```, ```--help```: this flag will show the usage of the program as well as a description of what it does as well as an explanation of all the parameters it has and can modify or offer some information when executing the program.
+- ```-i```, ```--indir```: this argument is required can either be an absolute or relative path of the input folder containing all the binary-interaction PDB files that are going to be used to build the complex.
+- ```-o```, ```--outdir```: this argument is optional and if set, all the output files will be saved in this folder. If not set, by default, the output files will be saved in a folder named: input_foldername_output.
+- ```-v```, ```--verbose```: this argument is optional and will print the progression log in the standard error if set.
+- ```-pi```, ```--pdb_iterations```: this argument is optional and will save a new PDB file every time a chain is added to the complex if set.
+- ```-ste```, ```--number_chains```: this argument is optional and if set indicates the number of chains the user wants the final complex to have. If not, it will take a value of 100 by default.
+- ```rmsd```, ```--rmsd_threshold```: this argument is optional and if set, the RMSD threshold will take its value. If not, it will take a value of 0.3 by default.
+- ```cl```, ```--clashes_theshold```: this argument is optional and if set, the clashes threshold will take its value. If not, it will take a value of 30 by default.
+
 ### CODE LIMITATIONS
 - ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
 - Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this
