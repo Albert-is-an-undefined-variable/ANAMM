@@ -1,4 +1,4 @@
-from macrocomplex_functions import *
+from functions import *
 import os
 
 def post_optimization(pdb):
