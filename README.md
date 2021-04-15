@@ -106,6 +106,7 @@ ANAMM builds a macro-molecular complex given a set of binary protein-protein or 
 The algorithm creates a superimposition instance with the two chains as a value. This instance is sorted by the RMSD treshold, as well as a boolean that informs of whether a common chain between the reference and the sample structure has been found. 
 If the boolean is false, i.e., no common chain between reference and sample structure has been found, or the smallest RMSD is greater than the threshold, the currently processed file is popped from the list and appended to the end of it, this way, it will be processed in a future iteration. 
 
+Once it has checked that, if the RMSD is below the threshold, the translation and rotation matrices of the Superimposer instance are applied to the key atoms, CA for proteins or C4’ for nucleic acids, of the putative chain to add, which is the one that is not the common chain with the reference structure, and with these new coordinates, the presence of clashes between the new coordinates of the putative chain to add atoms and the reference structure is checked (to determine if the chain can be added to the complex or not). In the other hand, if the chain is already present in the complex a boolean is generated and takes the value of True.
 
 The script execution finishes when the number of chains of the complex equals the number of chains specified in the stoichiometry argument. If the user does not add this argument, ANAMM will stop after all the files have been processed once without adding any new chains to the complex. 
 
