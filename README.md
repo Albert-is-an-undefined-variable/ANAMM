@@ -13,6 +13,7 @@
 - [ALGORITHM](#ALGORITHM)
   * [WORKFLOW](#WORKFLOW)
   * [ARGUMENTS](#ARGUMENTS)
+  * [OPTIMIZATION](#OPTIMIZATION)
   * [CODE LIMITATIONS](#CODE-LIMITATIONS)
   * [FUTURE CODE IMPROVMENT](#FUTURE-CODE-IMPROVMENT)
 - [EXAMPLES](#EXAMPLES)
@@ -134,7 +135,7 @@ Command-line arguments
 - ```-st```, ```--stoichiometry```: Argument that allows you to indicate the stoichiometry desired for the target complex, indicating the final number of chains that you macrocomplex have. If not, it will take a value of 100 by default.
 - ```rmsd```, ```--rmsd_threshold```: If set, the RMSD threshold for considering a superimposition as correct will take this value. If not, it will be 0.3 by default. WARNING: Argument misuse could affect the final output.  
 - ```cl```, ```--clashes_theshold```: If set, the clashes threshold will take its value. If not, it will take a value of 30 by default. "WARNING: Argument misuse could affect the final output.
-- ```opt```, ```--optimize```: 
+- ```opt```, ```--optimize```: Whether the model will be optimized with MODELLER after building or not. Default False'
 
 ### OPTIMIZATION 
 ANAMM has two different approaches to optimize the macrocomplex pdb: 
