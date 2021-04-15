@@ -1,13 +1,11 @@
 import Bio.PDB
 import sys
-import string
 import os
 import argparse
 import timeit
 import logging
 import re
 from macrocomplex_functions import *
-# alias chimera="~/.local/UCSF-Chimera64-1.13.1/bin/chimera"
 
 start = timeit.default_timer()
 
@@ -42,12 +40,6 @@ parser.add_argument('-nc', '--num_chains',
 					type = int,
 					default = 100,
 					help = "Argument that allows you to indicate the number of chains desired for the target complex.")
-
-parser.add_argument('-p', '--pdb_iterations',
-					dest = "pdb_iterations",
-					action = "store_true",
-					default = False,
-					help = "The program create a new pdb file every time that one iteration finishes.")
 
 parser.add_argument('-rt', '--rmsd_threshold',
 					dest = "rmsd_threshold",
@@ -85,17 +77,17 @@ else:
 
 os.chdir(arguments.indir + "/../")
 
-if arguments.outdir == None:		#Check output directory. If not, creates one
-	arguments.outdir = arguments.indir + "_out"
+if arguments.outdir == None:		#Check output directory. 
+	arguments.outdir = arguments.indir + "_out"  #If not, creates one
 else:
 	pass
-if not os.path.exists(arguments.outdir):		# Checking if the OUTPUT directory (created by us or provided by the user) already exists
+if not os.path.exists(arguments.outdir):		# Checking if the OUTPUT directory already exists
 	os.mkdir(arguments.outdir)		# If not, create it
 	arguments.outdir = os.path.abspath(arguments.outdir)
 else:
 	arguments.outdir = os.path.abspath(arguments.outdir)
 
-os.chdir(arguments.outdir)		##changes the current directory to OUTPUT directory
+os.chdir(arguments.outdir)		#makes the current directory into the output directory
 
 ### Initializing the LOG system ###
 
@@ -112,27 +104,29 @@ else:
 
 logging.info("Parameters used are:\n  - Number of chains: %d\n  - RMSD threshold: %.4f\n  - Clashes threshold %d" % (arguments.num_chains, arguments.rmsd_threshold, arguments.clashes))
 
-file_path = arguments.indir + "/" + files[0]		#creates path of the first file, which is going to be the reference structure
-pdb_parser = Bio.PDB.PDBParser(QUIET = True)	#creation of PDBParser object
-ref_structure = pdb_parser.get_structure("reference", file_path)	#creation of the reference structure with the first file, necessary to call the funtion
+#first file reference
+
+file_path = arguments.indir + "/" + files[0]		#path of the first file, the reference
+pdb_parser = Bio.PDB.PDBParser(QUIET = True)	
+ref_structure = pdb_parser.get_structure("reference", file_path)	#reference structure from the first file
 logging.info("The initial complex has %d chains and are the following:" % (ref_structure[0].__len__()))
-for ID in [chain.get_id() for chain in ref_structure[0].get_chains()]:		#loops through all chains of ref_structure
-	logging.info("Chain %s", ID)		#prints the ID
+for ID in [chain.get_id() for chain in ref_structure[0].get_chains()]:		#loops through all chains of the reference structure
+	logging.info("Chain %s", ID)		#print ID
 
-ref_structure = MacrocomplexBuilder(ref_structure = ref_structure, files_list = files, it = 0, not_added = 0, command_arguments = arguments)	#calling the iterative function
+ref_structure = MacrocomplexBuilder(ref_structure = ref_structure, files_list = files, it = 0, not_added = 0, command_arguments = arguments)	#FIRST call of the iterative function
 
 
-io = Bio.PDB.PDBIO()								#creates the PDBIO object
-io.set_structure(ref_structure[0])					#sets the reference structure object to be written in a PDB file
-io.save("macrocomplex.pdb")							#the whole macrocomplex gets saved in "macrocomplex.pdb"
+io = Bio.PDB.PDBIO()								
+io.set_structure(ref_structure[0])					#reference structure object written in a PDB file
+io.save("macrocomplex.pdb")							#save in "macrocomplex.pdb"
 #logging.info("Output files %s saved in %s" %("macrocomplex.pdb and macrocomplex.log",os.path.abspath(arguments.outdir)))
 
 stop = timeit.default_timer()
 #logging.info("The program has finished running! It took %f seconds" % (stop - start))
 
-###############################
+
 # Try to optimize the build   #
-###############################
+
 if(arguments.optimize):
 	from builder import optimize
 	print('Optimizing...')
