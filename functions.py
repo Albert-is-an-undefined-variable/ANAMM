@@ -6,14 +6,12 @@ from Bio.PDB import NeighborSearch
 import sys
 import os
 import argparse
-import logging
-import re
-from modeller import environ, selection
-from modeller.scripts import complete_pdb
-from modeller.optimizers import conjugate_gradients, molecular_dynamics, actions
+#from modeller import environ, selection
+#from modeller.scripts import complete_pdb
+#from modeller.optimizers import conjugate_gradients, molecular_dynamics, actions
 
 
-def get_key_atom(chain):
+def get_key_atom(chain, verbose):
 	"""This function retrieves the key atoms (CA for proteins, C4' for nucleic acids), to do the superimposition and also returns a
 	variable indicating the kind of molecule that that chain is: either DNA, RNA or PROTEIN
 	"""
@@ -29,7 +27,8 @@ def get_key_atom(chain):
 		# Append CA atoms and set the molecule type to protein
 		if res.get_id()[0] == " " and res_name not in nucleic_acids:
 			if 'CA' not in res:
-				logging.warning("This protein residue %d %s does not have CA atom" % (res.get_id()[1], res_name))
+				if verbose:
+					print("WARNING: This protein residue %d %s does not have CA atom" % (res.get_id()[1], res_name))
 			else:
 				atoms.append(res['CA'])
 				molecule = 'PROTEIN'
@@ -117,7 +116,7 @@ def optimize(pdb, pdb_path):
 	return (mpdf_prior, mpdf_after)
 
 
-def superimposition(ref_structure, sample_structure, rmsd_threshold):
+def superimposition(ref_structure, sample_structure, rmsd_threshold, verbose):
 	"""This function, takes as arguments a sample structure and a reference structure and performs the superimposition of every combination of pairs of chains and calculates the RMSD.
 	The output is a dictionary with a tuple of the reference and sample chain including the resulting superimposer instance, as
 	well as two additional variables, the ID of the chain with the smallest RMSD and the RMSD value
@@ -134,23 +133,28 @@ def superimposition(ref_structure, sample_structure, rmsd_threshold):
 	# Superimposition of every combination of pairs of chains between the reference and the sample structures
 	# loop through reference model chains
 	for ref_chain in ref_model:
-		logging.info("Processing reference chain %s", ref_chain.id)
-		ref_atoms, ref_molecule = get_key_atom(ref_chain)
+		if verbose:
+			print("Processing reference chain %s" , ref_chain.id)
+		ref_atoms, ref_molecule = get_key_atom(ref_chain, verbose)
 		# loop through sample model chains
 		for sample_chain in sample_model:
-			logging.info("Processing sample chain %s", sample_chain.id)
-			sample_atoms, sample_molecule = get_key_atom(sample_chain)
+			if verbose:
+				print("Processing sample chain %s" , sample_chain.id)
+			sample_atoms, sample_molecule = get_key_atom(sample_chain, verbose)
 			if ref_molecule != sample_molecule:				#see that the molecular types of ref chain and sample chain are the same
-				logging.warning("Cannot superimpose. Reference chain %s is %s and sample chain %s is %s" %(ref_chain.get_id(), ref_molecule, sample_chain.get_id(), sample_molecule))
+				if verbose:
+					print("Cannot superimpose. Reference chain %s is %s and sample chain %s is %s" %(ref_chain.get_id(), ref_molecule, sample_chain.get_id(), sample_molecule))
 			elif len(ref_atoms) != len(sample_atoms):		#ensure that the length in atoms of ref_chain and sample_chain is the same
-				logging.warning("Cannot superimpose. The number of atoms of the reference chain %s is %d and the number of atoms of the sample chain %s is %d", ref_chain.get_id(), len(ref_atoms), sample_chain.get_id(), len(sample_atoms))
+				if verbose:
+					print("Cannot superimpose. The number of atoms of the reference chain %s is %d and the number of atoms of the sample chain %s is %d", ref_chain.get_id(), len(ref_atoms), sample_chain.get_id(), len(sample_atoms))
 			# Make the superimposition
 			else:
 				super_imposer = Bio.PDB.Superimposer()
 				super_imposer.set_atoms(ref_atoms, sample_atoms)
 				RMSD = super_imposer.rms
 				if RMSD > rmsd_threshold:
-					logging.info("The RMSD between chain %s of the reference and chain %s of the sample is %f", ref_chain.id, sample_chain.id, RMSD)
+					if verbose:
+						print("The RMSD between chain %s of the reference and chain %s of the sample is %f", ref_chain.id, sample_chain.id, RMSD)
 					continue
 				if prev_RMSD is True or RMSD < prev_RMSD:			#checks that the RMSD of this combination is smaller than the previous one
 					best_sample_chain_ID = sample_chain.id
@@ -159,11 +163,13 @@ def superimposition(ref_structure, sample_structure, rmsd_threshold):
 					prev_RMSD = RMSD
 				all_superimpositions[(ref_chain.id, sample_chain.id)] = super_imposer		#saving all superimposer instances
 				superimposed_chains = True
-				logging.info("The RMSD between chain %s of the reference and chain %s of the sample is %f", ref_chain.id, sample_chain.id, RMSD)
+				if verbose:
+					print("The RMSD between chain %s of the reference and chain %s of the sample is %f", ref_chain.id, sample_chain.id, RMSD)
 	# ensure one superimposition
 	if superimposed_chains is True:
 		all_superimpositions = sorted(all_superimpositions.items(), key=lambda k:k[1].rms)		#sorting by the lowest RMSD
-		logging.info("The combination of chains with the lowest RMSD is ref chain %s and sample chain %s with an RMSD of %f", best_ref_chain_ID, best_sample_chain_ID, best_RMSD)
+		if verbose:
+			print("The combination of chains with the lowest RMSD is ref chain %s and sample chain %s with an RMSD of %f", best_ref_chain_ID, best_sample_chain_ID, best_RMSD)
 	return(all_superimpositions, superimposed_chains, best_RMSD)
 
 def write_pdb(reference_structure):
@@ -172,10 +178,11 @@ def write_pdb(reference_structure):
 		io.set_structure(reference_structure[0])					#reference structure object written in a PDB file
 		io.save("i_model.pdb")
 
-def process_file (file, input_dir):
+def process_file (file, input_dir, verbose):
 	"""Function that requires a file and its path in order to process it. The processing consists in creating a PDBParser object and obtaining the structure and model from there.
 	"""
-	logging.info("We are processing the file %s" % (file))
+	if verbose:
+		print("We are processing the file %s" % (file))
 	file_path = input_dir + "/" + file
 	pdb_parser = Bio.PDB.PDBParser(QUIET = True)		#PDBParser object
 	file_structure = pdb_parser.get_structure("file", file_path)		#structure
@@ -195,26 +202,28 @@ def MacrocomplexBuilder(ref_structure, files_list, it, not_added, command_argume
 	RMSD_threshold = command_arguments.rmsd_threshold
 	indir = command_arguments.indir
 	outdir = command_arguments.outdir
+	verbose = command_arguments.verbose
 
 	chains = ref_structure[0].__len__()
 	# Prints the current iteration and number of chains of the current complex
-
-	logging.info("This is the iteration #%d of the recursive function" % i )
-	logging.info("The complex has %d chains at this point" % chains)
+	if verbose:
+		print("This is the iteration #%d of the recursive function" % i )
+		print("The complex has %d chains at this point" % chains)
 
 	# Checks if the current macrocomplex satisfies the desired number of chains or just stops
 
 	if chains == sto or n > len(files_list):
-		logging.info("The whole macrocomplex has been successfully build")
-		logging.info("The final complex has %d chains" % chains)
-		logging.info("We have arrived to iteration %d" %(i))
+		if verbose:
+			print("The whole macrocomplex has been successfully build")
+			print("The final complex has %d chains" % chains)
+			print("We have arrived to iteration %d" %(i))
 		return 	ref_structure			#END
 
 	#Select the first element of the list of files to analyze
-	(sample_structure, sample_model) = process_file(files_list[0], indir)
+	(sample_structure, sample_model) = process_file(files_list[0], indir, verbose)
 
 	# Calling the superimposition function
-	all_superimpositions, superimposed_chains, best_RMSD = superimposition(ref_structure, sample_structure, RMSD_threshold)
+	all_superimpositions, superimposed_chains, best_RMSD = superimposition(ref_structure, sample_structure, RMSD_threshold, verbose)
 
 	# There are no superimposed chains or RMSD is above the threshold then call the function again
 	if superimposed_chains is False or best_RMSD > RMSD_threshold:
@@ -227,19 +236,22 @@ def MacrocomplexBuilder(ref_structure, files_list, it, not_added, command_argume
 	else:
 		# Loop through the superimposition dictionary
 		for chains, sup in all_superimpositions:
-			logging.info("We are processing the superimposition of ref chain %s with sample chain %s with an RMSD of %f" % (chains[0],chains[1], sup.rms))
+			if verbose:
+				print("We are processing the superimposition of ref chain %s with sample chain %s with an RMSD of %f" % (chains[0],chains[1], sup.rms))
 			if sup.rms > RMSD_threshold:
-				logging.info("This superimposition of ref chain %s with sample chain %s has an RMSD bigger than the threshold, therefore it is skipped" % (chains[0],chains[1]))
+				if verbose:
+					print("This superimposition of ref chain %s with sample chain %s has an RMSD bigger than the threshold, therefore it is skipped" % (chains[0],chains[1]))
 				continue
 			sup.apply(sample_model.get_atoms())		#applies ROTATION and TRANSLATION matrices to all the atoms in the sample model
 			# Get the sample chain that was not superimposed with the reference chain and add it as a putative chain
 			chain_to_add = [chain for chain in sample_model.get_chains() if chain.get_id() != chains[0]][0]
 			present_chain = False
-			sample_atoms, sample_molecule = get_key_atom(chain_to_add)
-			logging.info("Putative chain to add is %s" % chain_to_add.id)
+			sample_atoms, sample_molecule = get_key_atom(chain_to_add, verbose)
+			if verbose:
+				print("Putative chain to add is %s" % chain_to_add.id)
 			# Loops through all the chains from the reference structure
 			for chain in ref_structure[0].get_chains():
-				ref_atoms, ref_molecule = get_key_atom(chain)
+				ref_atoms, ref_molecule = get_key_atom(chain, verbose)
 				# Makes a Neighbor Search to look for clashes between the chain to add and the chains from the reference structure
 				Neighbor = Bio.PDB.NeighborSearch(ref_atoms)
 				clashes = []
@@ -249,20 +261,24 @@ def MacrocomplexBuilder(ref_structure, files_list, it, not_added, command_argume
 						clashes.extend(atoms_clashed)
 				if len(clashes) > clashes_threshold:
 					present_chain = True
-					logging.info("The number of clashes between the chain to add %s and reference chain %s is %d, therefore the chain is skipped" % (chain_to_add.id, chain.id,len(clashes)))
+					if verbose:
+						print("The number of clashes between the chain to add %s and reference chain %s is %d, therefore the chain is skipped" % (chain_to_add.id, chain.id,len(clashes)))
 					break 									#skips in the case that it already clashes with one reference chain
 				# Checks that the number of total clashes is under the threshold
 				elif len(clashes) <= clashes_threshold:
-					logging.info("The number of clashes between the chain to add %s and reference chain %s is %d, it is under the threshold" % (chain_to_add.id, chain.id,len(clashes)))
+					if verbose:
+						print("The number of clashes between the chain to add %s and reference chain %s is %d, it is under the threshold" % (chain_to_add.id, chain.id,len(clashes)))
 					continue
 			# the rotated chain is not a chain already in the building macrocomplex structure, then adds it
 			if present_chain is False:
-				logging.info("Chain %s superimposed with chain %s yields rotated chain %s which is not in the complex" %(chains[0],chains[1],chain_to_add.id))
+				if verbose:
+					print("Chain %s superimposed with chain %s yields rotated chain %s which is not in the complex" %(chains[0],chains[1],chain_to_add.id))
 				chain_ids = [chain.id for chain in ref_structure[0].get_chains()]
 				ID = chain_character_ID(chain_ids, chain_to_add.id)
 				chain_to_add.id = ID
 				ref_structure[0].add(chain_to_add)
-				logging.info("Added Chain %s" % ID)
+				if verbose:
+					print("Added Chain %s" % ID)
 				file = files_list.pop(0)
 				files_list.append(file)
 				i += 1
