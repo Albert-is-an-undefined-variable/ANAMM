@@ -76,9 +76,9 @@ There, you have to ask for a MODELLER license key. It is recommended to give you
 | ![image](./img/1gzx.png) | ![image](./img/1gzx_optimized.png) | 
 
 ### 5FJ8
-| No Changes | Re-centered | Rotated | 
-| ------------- | ------------- | ------------- |
-| ![image](./img/not_superimposed.jpeg) | ![image](./img/superimposed.jpeg) | ![image](./img/rotated.jpeg) |
+| Standard Output | Optimize Output | 
+| ------------- | ------------- | 
+| ![image](./img/5FJ8.png) | ![image](./img/5FJ8_optimized.png) |
 ## REFERENCES 
 We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
 - Bottaro, S., Di Palma, F., & Bussi, G. (2014). The role of nucleobase interactions in RNA structure and dynamics. Nucleic Acids Research, 42(21), 13306–13314.
