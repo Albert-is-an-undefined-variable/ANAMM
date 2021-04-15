@@ -16,7 +16,6 @@
   * [CODE LIMITATIONS](#CODE-LIMITATIONS)
   * [FUTURE CODE IMPROVMENT](#FUTURE-CODE-IMPROVMENT)
 - [EXAMPLES](#EXAMPLES)
-  * [TUTORIAL](#TUTORIAL)
   * [1GZX](#1GZX)
   * [5FJ8](#5FJ8)
 
@@ -67,12 +66,19 @@ This does not mean that one approach is better than the other. All approaches ha
 
 ## INSTALLATION
 
-The package can be downloaded using Git:
+The package can be downloaded using Git from the command line or as a zip in the upper button:
 ```
  git clone https://github.com/Albert-is-an-undefined-variable/ANAMM
- cd ANAMM
 ```
-Then, it can be installed (optional) via setup.py:
+Time to move to the program directory from your terminal:
+```
+ cd ANAMM (or the name of the folder)
+```
+Then, pip is recommended to install it within the downloaded directory:
+```
+ pip3 install .
+```
+If it does not work you can try by running setup.py:
 ```
  python3 setup.py install
 ```
@@ -107,7 +113,6 @@ ANAMM builds a macro-molecular complex given a set of binary protein-protein or 
 The algorithm creates a superimposition instance with the two chains as a value. This instance is sorted by the RMSD treshold, as well as a boolean that informs of whether a common chain between the reference and the sample structure has been found. 
 If the boolean is false, i.e., no common chain between reference and sample structure has been found, or the smallest RMSD is greater than the threshold, the currently processed file is popped from the list and appended to the end of it, this way, it will be processed in a future iteration. 
 
-Once it has checked that, if the RMSD is below the threshold, the translation and rotation matrices of the Superimposer instance are applied to the key atoms, CA for proteins or C4’ for nucleic acids, of the putative chain to add, which is the one that is not the common chain with the reference structure, and with these new coordinates, the presence of clashes between the new coordinates of the putative chain to add atoms and the reference structure is checked (to determine if the chain can be added to the complex or not). In the other hand, if the chain is already present in the complex a boolean is generated and takes the value of True.
 
 The script execution finishes when the number of chains of the complex equals the number of chains specified in the stoichiometry argument. If the user does not add this argument, ANAMM will stop after all the files have been processed once without adding any new chains to the complex. 
 
@@ -135,7 +140,6 @@ Command-line arguments
 - Use of generator functions instead of lists (memory costs)
 - Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier)
 ## EXAMPLES
-### TUTORIAL
 Here we would make a tutorial with some examples. This proces can be replied by the user. You will find the different pdbs in the examples folder. 
 ### 1GZX
 This structure is a T State Haemoglobin with Oxygen Bound at All Four Haems. The cooperative binding of oxygen by haemoglobin results from restraints on ligand binding in the T state. The unfavourable interactions made by the ligands at the haems destabilise the T state and favour the high affinity R state. The T <==> R equilibrium leads, in the presence of a ligand, to a rapid increase in the R state population and therefore generates cooperative binding. 
