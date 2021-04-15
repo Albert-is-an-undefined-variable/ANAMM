@@ -104,17 +104,17 @@ Structure of yeast RNA polymerase III elongation complex. Transcription of genes
 
 -ste argument allows you to add the stoichiometry of the model representing the total number of chains that you want from your macrocomplex model. The -opt argument is to optimize the model and the energy. In the following pictures we would put only the optimize model: 
 
-| Standard Output | Optimize Output | 
+| Surface | Optimize Output | 
 | ------------- | ------------- | 
-| ![image](./img/5FJ8.png) | ![image](./img/5FJ8_optimized.png) |
+| ![image](./img/surface_5FJ8.png) | ![image](./img/5FJ8_1.png) |
 
 The optimized model has reduced the energy of the model by 4500% in comparison with the ANAMM's standard output. In big models, the optimization argument is very useful as we can see. It is important to add the stoichiometry argument if we know the final number of chains of the macro complex, because the algorithm performs better with this argument. 
 
 In the pictures we can see that the RNA fits perfectly inside the RNA polymerase. Moreover, in the next figure, we can see that the DNA is opened due to the transcription process, where polymerase transcribes DNA into RNA. 
 
-| Transcription process | 
+| Transcription | 
 | ------------- |
-| ![image](./img/5FJ8.png) |
+| ![image](./img/DNA_OPEN.png) |
 
 ## REFERENCES 
 We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
