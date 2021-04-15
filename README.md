@@ -126,24 +126,24 @@ It is important to add the stoichiometry argument if we know the final number of
 
 ### ARGUMENTS
 Command-line arguments
--  ```-h```, ```--help```: this flag will show the usage of the program as well as a description of what it does as well as an explanation of all the parameters it has and can modify or offer some information when executing the program.
-- ```-i```, ```--indir```: this argument is required can either be an absolute or relative path of the input folder containing all the binary-interaction PDB files that are going to be used to build the complex.
-- ```-o```, ```--outdir```: this argument is optional and if set, all the output files will be saved in this folder. If not set, by default, the output files will be saved in a folder named: input_foldername_output.
-- ```-v```, ```--verbose```: this argument is optional and will print the progression log in the standard error if set.
+-  ```-h```, ```--help```: This flag will show the usage of the program as well as a description of what it does as well as an explanation of all the parameters and arguments.
+- ```-i```, ```--indir```: MANDATORY ARGUMENT: Directory containing all PDB files with the protein binary interactions
+- ```-o```, ```--outdir```: Directory where final results will be save. The program generates a i_complex.pdb (file with the final structure) file. By default, if the user does not indicate any output directory, the program will create one. The name of the output created by default by the program is the input folder_out.
+- ```-v```, ```--verbose```: If set, the progression log printed in standard output file.
 - ```-sto```, ```--stoichiometry```: Argument that allows you to indicate the stoichiometry desired for the target complex, indicating the final number of chains that you macrocomplex have. If not, it will take a value of 100 by default.
 - ```rmsd```, ```--rmsd_threshold```: If set, the RMSD threshold for considering a superimposition as correct will take this value. If not, it will be 0.3 by default. WARNING: Argument misuse could affect the final output.  
 - ```cl```, ```--clashes_theshold```: If set, the clashes threshold will take its value. If not, it will take a value of 30 by default. "WARNING: Argument misuse could affect the final output.
 
 ### CODE LIMITATIONS
-- ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
-- Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this
+- ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it.
+- Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this.
 - ANAMM crashes if we have a final PDB macrocomplex bigger than 99.999 atoms because pdb file can not contain more than 99.999 atoms. If this happen, the stechiometry argument does not work. To solve that, we have create a post_optimize.py that allows the user optimize the final pdb in this particular case. This script can be used with any pdb that we want to improve. is highly recommended to use -ste argument to avoid this crash.
 
 ### FUTURE CODE IMPROVMENT
-- Functions could be further splitted
-- More use of one-liners (the pythonic way)
-- Use of generator functions instead of lists (memory costs)
-- Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier)
+- Functions could be further splitted.
+- More use of one-liners (the pythonic way).
+- Use of generator functions instead of lists (memory costs).
+- Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier).
 
 ## EXAMPLES
 ### TUTORIAL
