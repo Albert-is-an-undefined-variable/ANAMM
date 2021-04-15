@@ -200,7 +200,7 @@ Our approach creates one "not-optimized model", but if optimization is selected 
 It must be said that, although the program works well with the given examples and some other tested proteins, for files like 2O61 where many chains are involved (86), there is a recursion error that hinders the creation of the model.
 
 As a final remark, our non-previous knowledge on programming before this subject (time-consuming errors and many reboots during its development), and the still foggy features that this project should have had (like the different input file formats of the examples, or the not so clear pipeline to follow) may have influence in the obtained results.
-So far, we did our best
+So far, we did our best.
 
 ## REFERENCES 
 We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
