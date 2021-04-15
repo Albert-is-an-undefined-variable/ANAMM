@@ -3,6 +3,7 @@ import sys
 import string
 import os
 import argparse
+import logging
 from modeller import environ, selection
 from modeller.scripts import complete_pdb
 from modeller.optimizers import conjugate_gradients, molecular_dynamics, actions
