@@ -65,6 +65,16 @@ This program uses the common way to build a macro complex, that as we have expla
 This does not mean that one approach is better than the other. All approaches have their pros and cons, but for future versions of the program it is important to take into account all possible improvements, because some of this approaches could solve some actual limitations that our tool presents. 
 
 ## INSTALLATION
+
+The package can be downloaded using Git:
+```
+ git clone https://github.com/Albert-is-an-undefined-variable/ANAMM
+ cd ANAMM
+```
+Then, it can be installed (optional) via setup.py:
+```
+ python3 setup.py install
+```
 ## REQUERIMENTS
 ### MANDATORY
 The following versions of packages/modules must be installed in order to run our program properly:
