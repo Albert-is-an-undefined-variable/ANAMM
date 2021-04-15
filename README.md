@@ -1,3 +1,6 @@
+
+https://user-images.githubusercontent.com/74412173/114835586-0525fa00-9dd2-11eb-8f33-3b80a625194b.mp4
+
 # ComplexMod
 ## DESCRIPTION
 The function of this program is to reconstruct biological macrocomplexes. It can build them using protein-DNA/RNA interactions as well as protein-protein interactions. The input is a set of binary interactions and the desired number of chains of the target complex. Moreover, you can add extra arguments, as RMSD treshold. This program needs as input the folder where the input files are, and you have to select an output directory to save the output files. If you do not select the output folder, the program automatically will create one.
@@ -19,6 +22,8 @@ RMSD values are presented in Å and calculated by where the averaging is perform
 
 You have molecule A and B and want to calculate the structural difference between those two. If you just calculate the RMSD straight-forward you might get a too big of a value. For that reason, you would need to first recenter the two molecules and then rotate them unto each other until you get the true minimal RMSD. ComplexMod performs this approximation with several chains (if the input have more than two chains). After obtaining the minimal RMSD between two chains, we are interested in the chain of the sample structure that actually has not been superimposed, as the final goal is trying to build a multi-chain complex. Because of the superimposition, the atom coordinates of this non-superimposed chain has changed, thus, they have rotated towards the reference structure. To accept this new rotation, we must check whether the atoms of this chain clashes with the atoms of any of the chains of the reference structure. Clashes are unfavorable interactions where atoms are too close together. 
 ![image](https://user-images.githubusercontent.com/74412173/114832428-c17dc100-9dce-11eb-83b2-4e0fb9fe34de.png)
+
+https://user-images.githubusercontent.com/74412173/114835619-0ce59e80-9dd2-11eb-8dc1-7add03b56580.mp4
 
 
 They can be calculated using a K-dimensional tree data structure (KDTree), which uses N-dimensional vectors to find all points within a radius of a given point. Thus, we can know how many atoms have at least one atom within radius of center. In a real proteins, clashes cannot happen, because if the distance between two atoms is minimum, the energy is maximum. For instance, repulsive forces prevail in Van Der Waals interactions, due to the collision of external electron clouds, making this interaction unfavorable. If the number of clashes is below a given threshold, we can allow this new rotation and add the chain in the reference structure.
