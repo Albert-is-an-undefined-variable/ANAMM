@@ -135,6 +135,17 @@ Command-line arguments
 - ```rmsd```, ```--rmsd_threshold```: this argument is optional and if set, the RMSD threshold will take its value. If not, it will take a value of 0.3 by default.
 - ```cl```, ```--clashes_theshold```: this argument is optional and if set, the clashes threshold will take its value. If not, it will take a value of 30 by default.
 
+### CODE LIMITATIONS
+- ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
+- Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this
+- ANAMM crashes if we have a final PDB macrocomplex bigger than 99.999 atoms because pdb file can not contain more than 99.999 atoms. If this happen, the stechiometry argument does not work. To solve that, we have create a post_optimize.py that allows the user optimize the final pdb in this particular case. This script can be used with any pdb that we want to improve. is highly recommended to use -ste argument to avoid this crash.
+
+### FUTURE CODE IMPROVMENT
+- Functions could be further splitted
+- More use of one-liners (the pythonic way)
+- Use of generator functions instead of lists (memory costs)
+- Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier)
+
 ## EXAMPLES
 ### TUTORIAL
 Here we would make a tutorial with some examples. This proces can be replied by the user. You will find the different pdbs in the examples folder. Moreover, we have made a youtube video explaining how ANAMM works. If you are interested in a full tutorial explanation, you can check it in this link: 
@@ -177,23 +188,13 @@ The optimized model has reduced the energy of the model by 4500% in comparison w
 
 In the pictures we can see that the RNA fits perfectly inside the RNA polymerase. Moreover, in the next figure, we can see that the DNA is opened due to the transcription process, where polymerase transcribes DNA into RNA. 
 
-### Transcription
+### Transcription 
 
 <p align="center">
   <img src="https://github.com/Albert-is-an-undefined-variable/Complexmod/blob/main/img/DNA_OPEN.png" />
 </p>
 
 
-### CODE LIMITATIONS
-- ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
-- Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this
-- ANAMM crashes if we have a final PDB macrocomplex bigger than 99.999 atoms because pdb file can not contain more than 99.999 atoms. If this happen, the stechiometry argument does not work. To solve that, we have create a post_optimize.py that allows the user optimize the final pdb in this particular case. This script can be used with any pdb that we want to improve. is highly recommended to use -ste argument to avoid this crash.
-
-### FUTURE CODE IMPROVMENT
-- Functions could be further splitted
-- More use of one-liners (the pythonic way)
-- Use of generator functions instead of lists (memory costs)
-- Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier)
 
 ## REFERENCES 
 We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
