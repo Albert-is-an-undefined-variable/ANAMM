@@ -113,10 +113,12 @@ Structure of yeast RNA polymerase III elongation complex. Transcription of genes
 The optimized model has reduced the energy of the model by 4500% in comparison with the ANAMM's standard output. In big models, the optimization argument is very useful as we can see. It is important to add the stoichiometry argument if we know the final number of chains of the macro complex, because the algorithm performs better with this argument. 
 
 In the pictures we can see that the RNA fits perfectly inside the RNA polymerase. Moreover, in the next figure, we can see that the DNA is opened due to the transcription process, where polymerase transcribes DNA into RNA. 
-
+<p align="center">
 | Transcription | 
 | ------------- |
 | ![image](./img/DNA_OPEN.png) |
+</p>
+
 
 ## REFERENCES 
 We have extract some of the information about protein-protein interaction superimposition, RMSD value and things related to this project from this references: 
