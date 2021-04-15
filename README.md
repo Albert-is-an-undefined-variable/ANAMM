@@ -196,7 +196,7 @@ Structure of yeast RNA polymerase III elongation complex. Transcription of genes
 > python3 MC_builder.py -i examples/5fj8/ -out 5fj8_out/ -st 17 -opt
 ```
 
-```-st``` argument allows you to add the stoichiometry of the model representing the total number of chains that you want from your macrocomplex model. The -opt argument is to optimize the model and the energy. In the following pictures we would put only the optimize model: 
+```-st``` argument allows you to add the stoichiometry of the model representing the total number of chains that you want from your macrocomplex model. The ``` -opt``` argument is to optimize the model and the energy. In the following pictures we would put only the optimize model: 
 
 | Surface | Optimize Output | 
 | ------------- | ------------- | 
