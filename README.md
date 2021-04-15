@@ -1,6 +1,4 @@
 
-https://user-images.githubusercontent.com/74412173/114835586-0525fa00-9dd2-11eb-8f33-3b80a625194b.mp4
-
 # ANAMM (Amino-Nucleic Acid Macrocomplex Modeler)
 ## TABLE OF CONTENTS
 
