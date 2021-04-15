@@ -67,12 +67,19 @@ This does not mean that one approach is better than the other. All approaches ha
 
 ## INSTALLATION
 
-The package can be downloaded using Git:
+The package can be downloaded using the terminal, or the upper button to get as a zip file:
 ```
  git clone https://github.com/Albert-is-an-undefined-variable/ANAMM
+```
+Now change to the programm directory:
+```
  cd ANAMM
 ```
-Then, it can be installed (optional) via setup.py:
+Now proceed with the installation using pip3 (you must be inside the directory):
+```
+pip3 install .
+```
+If for some reason it does not work, you can install it via setup.py:
 ```
  python3 setup.py install
 ```
