@@ -128,7 +128,7 @@ It is important to add the stoichiometry argument if we know the final number of
 Command-line arguments
 -  ```-h```, ```--help```: This flag will show the usage of the program as well as a description of what it does as well as an explanation of all the parameters and arguments.
 - ```-i```, ```--indir```: MANDATORY ARGUMENT: Directory containing all PDB files with the protein binary interactions
-- ```-o```, ```--outdir```: Directory where final results will be save. The program generates a i_complex.pdb (file with the final structure) file. By default, if the user does not indicate any output directory, the program will create one. The name of the output created by default by the program is the input folder_out.
+- ```-out```, ```--outdir```: Directory where final results will be save. The program generates a i_complex.pdb (file with the final structure) file. By default, if the user does not indicate any output directory, the program will create one. The name of the output created by default by the program is the input folder_out.
 - ```-v```, ```--verbose```: If set, the progression log printed in standard output file.
 - ```-sto```, ```--stoichiometry```: Argument that allows you to indicate the stoichiometry desired for the target complex, indicating the final number of chains that you macrocomplex have. If not, it will take a value of 100 by default.
 - ```rmsd```, ```--rmsd_threshold```: If set, the RMSD threshold for considering a superimposition as correct will take this value. If not, it will be 0.3 by default. WARNING: Argument misuse could affect the final output.  
@@ -174,7 +174,7 @@ ANAMM has a good performance with this example. The optimization file and the ou
 Structure of yeast RNA polymerase III elongation complex. Transcription of genes encoding small structured RNAs such as transfer RNAs, spliceosomal U6 small nuclear RNA and ribosomal 5S RNA is carried out by RNA polymerase III (Pol III), the largest yet structurally least characterized eukaryotic RNA polymerase. 
 
 ```
-> MC_builder.py -i 5fj8/ -out 5fj8_out/ -ste 17 -opt
+> MC_builder.py -i 5fj8/ -out 5fj8_out/ -sto 17 -opt
 ```
 
 -ste argument allows you to add the stoichiometry of the model representing the total number of chains that you want from your macrocomplex model. The -opt argument is to optimize the model and the energy. In the following pictures we would put only the optimize model: 
