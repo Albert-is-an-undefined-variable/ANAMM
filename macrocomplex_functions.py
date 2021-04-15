@@ -3,12 +3,11 @@ import sys
 import string
 import os
 import argparse
-import timeit
-import logging
-import re
 from modeller import environ, selection
 from modeller.scripts import complete_pdb
 from modeller.optimizers import conjugate_gradients, molecular_dynamics, actions
+#print(argparse.__version__)
+#print(logging.__version__)
 
 
 def Key_atom_retriever(chain):
