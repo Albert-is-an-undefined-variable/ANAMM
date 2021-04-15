@@ -16,6 +16,7 @@
   * [CODE LIMITATIONS](#CODE-LIMITATIONS)
   * [FUTURE CODE IMPROVMENT](#FUTURE-CODE-IMPROVMENT)
 - [EXAMPLES](#EXAMPLES)
+  * [TUTORIAL](#TUTORIAL)
   * [1GZX](#1GZX)
   * [5FJ8](#5FJ8)
 
@@ -134,6 +135,7 @@ Command-line arguments
 - Use of generator functions instead of lists (memory costs)
 - Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier)
 ## EXAMPLES
+### TUTORIAL
 Here we would make a tutorial with some examples. This proces can be replied by the user. You will find the different pdbs in the examples folder. 
 ### 1GZX
 This structure is a T State Haemoglobin with Oxygen Bound at All Four Haems. The cooperative binding of oxygen by haemoglobin results from restraints on ligand binding in the T state. The unfavourable interactions made by the ligands at the haems destabilise the T state and favour the high affinity R state. The T <==> R equilibrium leads, in the presence of a ligand, to a rapid increase in the R state population and therefore generates cooperative binding. 
