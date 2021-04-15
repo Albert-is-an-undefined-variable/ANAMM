@@ -76,10 +76,24 @@ There, you have to ask for a MODELLER license key. It is recommended to give you
 - Use of generator functions instead of lists (memory costs)
 - Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier)
 ## EXAMPLES
+
 ### 1GZX
+This structure is a T State Haemoglobin with Oxygen Bound at All Four Haems. The cooperative binding of oxygen by haemoglobin results from restraints on ligand binding in the T state. The unfavourable interactions made by the ligands at the haems destabilise the T state and favour the high affinity R state. The T <==> R equilibrium leads, in the presence of a ligand, to a rapid increase in the R state population and therefore generates cooperative binding. 
+
+We have made these steps to achieve the final structure. The several input files are in the examples folder in case you want to repeat the steps: 
+
+```
+> MC_builder -i 1gzx/ -out -1gzx_out/ -opt
+```
+In this case we have added the optimize argument. What this means is that after the creation of the pdb file, the program would optimize it using MODELLER package and it will return an optimize.pdb
+
 | Standard Output | Optimize Output |
 | ------------- | ------------- | 
 | ![image](./img/1gzx.png) | ![image](./img/1gzx_optimized.png) | 
+
+
+ANAMM has a good performance with this example. The optimization file and the output file do not differ a lot, but is it true that the optimization file has less energy than the output file. 
+
 
 ### 5FJ8
 | Standard Output | Optimize Output | 
