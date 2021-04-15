@@ -23,7 +23,7 @@ RMSD values are presented in Å and calculated by where the averaging is perform
 You have molecule A and B and want to calculate the structural difference between those two. If you just calculate the RMSD straight-forward you might get a too big of a value. For that reason, you would need to first recenter the two molecules and then rotate them unto each other until you get the true minimal RMSD. ComplexMod performs this approximation with several chains (if the input have more than two chains). After obtaining the minimal RMSD between two chains, we are interested in the chain of the sample structure that actually has not been superimposed, as the final goal is trying to build a multi-chain complex. Because of the superimposition, the atom coordinates of this non-superimposed chain has changed, thus, they have rotated towards the reference structure. To accept this new rotation, we must check whether the atoms of this chain clashes with the atoms of any of the chains of the reference structure. Clashes are unfavorable interactions where atoms are too close together. 
 
 | No Changes | Re-centered |
-| ------------- | ------------- |
+| -------- | --------------- |
 | ![image](https://user-images.githubusercontent.com/74412173/114832428-c17dc100-9dce-11eb-83b2-4e0fb9fe34de.png) | 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/74412173/114836535-10c5f080-9dd3-11eb-962c-5a70091ad240.gif) |
 
