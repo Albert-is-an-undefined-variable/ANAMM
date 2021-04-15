@@ -12,9 +12,12 @@ https://user-images.githubusercontent.com/74412173/114835586-0525fa00-9dd2-11eb-
 - [REQUERIMENTS](#REQUERIMENTS)
   * [MANDATORY](#MANDATORY)
   * [OPTIONAL (HIGHLY RECOMMENDED)](#OPTIONAL-(HIGHLY-RECOMMENDED))
-
-
-
+- [ALGORITHM](#ALGORITHM)
+  * [CODE LIMITATIONS](#CODE-LIMITATIONS)
+  * [FUTURE CODE IMPROVMENT](#FUTURE-CODE-IMPROVMENT)
+- [EXAMPLES](#EXAMPLES)
+  * [1GZX](#1GZX)
+  * [5FJ8](#5FJ8)
 
 ## DESCRIPTION
 The function of this program is to reconstruct biological macrocomplexes. It can build them using protein-DNA/RNA interactions as well as protein-protein interactions. The input is a set of binary interactions and the desired number of chains of the target complex. Moreover, you can add extra arguments, as RMSD treshold. This program needs as input the folder where the input files are, and you have to select an output directory to save the output files. If you do not select the output folder, the program automatically will create one.
@@ -87,7 +90,7 @@ There, you have to ask for a MODELLER license key. It is recommended to give you
 If you wan tto download it without using conda, you can visit the modeller package website to further instructions. 
 
 ## ALGORITHM
-### LIMITATIONS
+### CODE LIMITATIONS
 - ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
 - Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this
 - ANAMM crashes if we have a final PDB macrocomplex bigger than 99.999 atoms because pdb file can not contain more than 99.999 atoms. If this happen, the stechiometry argument does not work. To solve that, we have create a post_optimize.py that allows the user optimize the final pdb in this particular case. This script can be used with any pdb that we want to improve. is highly recommended to use -ste argument to avoid this crash. 
