@@ -131,9 +131,19 @@ Command-line arguments
 - ```-i```, ```--indir```: MANDATORY ARGUMENT: Directory containing all PDB files with the protein binary interactions
 - ```-out```, ```--outdir```: Directory where final results will be save. The program generates a i_complex.pdb (file with the final structure) file. By default, if the user does not indicate any output directory, the program will create one. The name of the output created by default by the program is the input folder_out.
 - ```-v```, ```--verbose```: If set, the progression log printed in standard output file.
-- ```-sto```, ```--stoichiometry```: Argument that allows you to indicate the stoichiometry desired for the target complex, indicating the final number of chains that you macrocomplex have. If not, it will take a value of 100 by default.
+- ```-st```, ```--stoichiometry```: Argument that allows you to indicate the stoichiometry desired for the target complex, indicating the final number of chains that you macrocomplex have. If not, it will take a value of 100 by default.
 - ```rmsd```, ```--rmsd_threshold```: If set, the RMSD threshold for considering a superimposition as correct will take this value. If not, it will be 0.3 by default. WARNING: Argument misuse could affect the final output.  
 - ```cl```, ```--clashes_theshold```: If set, the clashes threshold will take its value. If not, it will take a value of 30 by default. "WARNING: Argument misuse could affect the final output.
+- ```opt```, ```--optimize```: 
+
+### OPTIMIZATION 
+ANAMM has two different approaches to optimize the macrocomplex pdb: 
+- **First option**: The first option is using the argument ```-opt```. This argument optimize the final output while the program is running. It is the best option. 
+- **Second option**: If the macrocomplex pdb file is bigger than 99.999 atoms, the program crushes before the optimization. In that case, we have created an extra script that would allow the user to optimize the macrocomplex pdb in a manual form. In fact, this script can optimaze any pdb that you want: 
+
+```python3 post_optimization.py```
+
+When the user call the script, this script would ask for the input pdb file. The pdb file must be in the same directory than the script. After that, it will optimize it. 
 
 ### CODE LIMITATIONS
 - ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it.
@@ -191,6 +201,7 @@ In the pictures we can see that the DNA fits perfectly inside the RNA polymerase
 <p align="center">
   <img src="https://github.com/Albert-is-an-undefined-variable/Complexmod/blob/main/img/DNA_OPEN.png" />
 </p>
+
 
 ## CONCLUSIONS
 
