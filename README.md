@@ -143,7 +143,7 @@ Command-line arguments
 - Functions could be further splitted.
 - More use of one-liners (the pythonic way).
 - Use of generator functions instead of lists (memory costs).
-- Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hindering code mantainance), so adding more composition to our code could make this task easier).
+- Use of composition over inheritance (since in python everything is an object, the easy  to adapt existent code to our program purposes providing  flexibility, but this has a drawback and it's that since the program works adding new features on top of predefined functions, if something needs to be modified its a bit messy (hampering code mantainance), so adding more composition to our code could make this task easier).
 
 ## EXAMPLES
 ### TUTORIAL
