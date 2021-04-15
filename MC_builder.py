@@ -2,12 +2,9 @@ import Bio.PDB
 import sys
 import os
 import argparse
-import timeit
 import logging
 import re
-from macrocomplex_functions import *
-
-start = timeit.default_timer()
+from functions import *
 
 parser = argparse.ArgumentParser(description =
 	"The function of this program is to reconstruct biological macrocomplexes. It can build them using protein-DNA/RNA interactions as well as protein-protein interactions. The input is a set of binary interactions and the desired number of chains of the target complex. Moreover, you can add a RMSD_treshold and the number of pdb_iteration as extra arguments. As input the program needs the folder where the input files are, and you have to select an output directory to save the output files. If you do not select the output folder, the program automatically will create one.")
@@ -118,10 +115,10 @@ ref_structure = MacrocomplexBuilder(ref_structure = ref_structure, files_list = 
 
 io = Bio.PDB.PDBIO()								
 io.set_structure(ref_structure[0])					#reference structure object written in a PDB file
-io.save("macrocomplex.pdb")							#save in "macrocomplex.pdb"
+io.save("macrocomplex.pdb")	
+#save in "macrocomplex.pdb"
 #logging.info("Output files %s saved in %s" %("macrocomplex.pdb and macrocomplex.log",os.path.abspath(arguments.outdir)))
 
-stop = timeit.default_timer()
 #logging.info("The program has finished running! It took %f seconds" % (stop - start))
 
 
