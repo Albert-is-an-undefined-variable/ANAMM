@@ -105,7 +105,7 @@ ANAMM builds a macro-molecular complex given a set of binary protein-protein or 
 
 The script execution finishes when the number of chains of the complex equals the number of chains specified in the stoichiometry argument. If the user does not add this argument, ANAMM will stop after all the files have been processed once without adding any new chains to the complex. 
 
-It is important to add the stoichiometry argument if we know the final number of chains of the macro complex because it will improve the efficiency of the algorithm. Another argument that is important to add is the optimize argument. This would allow an improvement of the macro complex output file. This option would not modify the workflow of the algorithm because it is launched once the program has already obtained the pdb final file. There are other arguments that we can include when we execute ANAMM and there are explained better in the arguments section. 
+It is important to add the stoichiometry argument if we know the final number of chains of the macro complex because it will improve the efficiency of the algorithm. Another argument that is important to add is the optimize argument. This would allow an improvement of the macro complex output file. This option would not modify the workflow of the algorithm because it is launched once the program has already obtained the pdb final file. There are other arguments that we can include when we execute ANAMM and there are explained better in the arguments section. The only **required** argument is the input file directory.
 
 
 ### ARGUMENTS
