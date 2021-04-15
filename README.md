@@ -11,6 +11,7 @@
   * [MANDATORY](#MANDATORY)
   * [OPTIONAL (HIGHLY RECOMMENDED)](#OPTIONAL-(HIGHLY-RECOMMENDED))
 - [ALGORITHM](#ALGORITHM)
+  * [WORKFLOW](#WORKFLOW)
   * [CODE LIMITATIONS](#CODE-LIMITATIONS)
   * [FUTURE CODE IMPROVMENT](#FUTURE-CODE-IMPROVMENT)
 - [EXAMPLES](#EXAMPLES)
@@ -88,6 +89,7 @@ There, you have to ask for a MODELLER license key. It is recommended to give you
 If you wan tto download it without using conda, you can visit the modeller package website to further instructions. 
 
 ## ALGORITHM
+### WORKFLOW
 ### CODE LIMITATIONS
 - ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
 - Stechiometry and optimization arguments are very important in order to reach a good model if we have big macrocomplexes. In small macrocomplexes, if we use only the core function without any optional arguments, the program construct a good model. But if we want to make a big one, we would need this extra arguments. In the examples part we can see this
