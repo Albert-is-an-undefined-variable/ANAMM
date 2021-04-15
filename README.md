@@ -131,8 +131,7 @@ Command-line arguments
 - ```-i```, ```--indir```: this argument is required can either be an absolute or relative path of the input folder containing all the binary-interaction PDB files that are going to be used to build the complex.
 - ```-o```, ```--outdir```: this argument is optional and if set, all the output files will be saved in this folder. If not set, by default, the output files will be saved in a folder named: input_foldername_output.
 - ```-v```, ```--verbose```: this argument is optional and will print the progression log in the standard error if set.
-- ```-pi```, ```--pdb_iterations```: this argument is optional and will save a new PDB file every time a chain is added to the complex if set.
-- ```-ste```, ```--number_chains```: this argument is optional and if set indicates the number of chains the user wants the final complex to have. If not, it will take a value of 100 by default.
+- ```-sto```, ```--stoichiometry```: this argument is optional and if set indicates the number of chains the user wants the final complex to have. If not, it will take a value of 100 by default.
 - ```rmsd```, ```--rmsd_threshold```: this argument is optional and if set, the RMSD threshold will take its value. If not, it will take a value of 0.3 by default.
 - ```cl```, ```--clashes_theshold```: this argument is optional and if set, the clashes threshold will take its value. If not, it will take a value of 30 by default.
 
