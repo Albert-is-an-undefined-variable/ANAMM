@@ -124,7 +124,6 @@ The script execution finishes when the number of chains of the complex equals th
 
 It is important to add the stoichiometry argument if we know the final number of chains of the macro complex because it will improve the efficiency of the algorithm. Another argument that is important to add is the optimize argument. This would allow an improvement of the macro complex output file. This option would not modify the workflow of the algorithm because it is launched once the program has already obtained the pdb final file. There are other arguments that we can include when we execute ANAMM and there are explained better in the arguments section. The only **required** argument is the input file directory.
 
-
 ### ARGUMENTS
 Command-line arguments
 -  ```-h```, ```--help```: this flag will show the usage of the program as well as a description of what it does as well as an explanation of all the parameters it has and can modify or offer some information when executing the program.
@@ -188,7 +187,9 @@ The optimized model has reduced the energy of the model by 4500% in comparison w
 
 In the pictures we can see that the RNA fits perfectly inside the RNA polymerase. Moreover, in the next figure, we can see that the DNA is opened due to the transcription process, where polymerase transcribes DNA into RNA. 
 
-### Transcription 
+<p align="center">
+  <h3><br>Transcription </br></h3>
+</p> 
 
 <p align="center">
   <img src="https://github.com/Albert-is-an-undefined-variable/Complexmod/blob/main/img/DNA_OPEN.png" />
