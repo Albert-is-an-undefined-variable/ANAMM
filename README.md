@@ -53,7 +53,7 @@ This approach have some limitations:
 - Calculates only structures with the same number of atoms. 
 - Has a low flexibility: Scale bad the cases that two structures that are identical with the exception of a position of a single loop or a flexible terminus typically have a large global backbone. This is not a particular case about our program, it happens to any algorithm that optimizes the global RMSD.
 - Any kind of RMSD-based measurement requires prior assignment of atom correspondences.
-- GUI interface is not develop yet
+- GUI interface is not develop yet.
 
 ### OTHER APPROACHES 
 This program uses the common way to build a macro complex, that as we have explained before is called the root-mean-square deviation (RMSD). But there are other approaches that we will briefly explain: 
@@ -113,7 +113,7 @@ If you wan tto download it without using conda, you can visit the modeller packa
 
 ## ALGORITHM
 ### WORKFLOW
-ANAMM builds a macro-molecular complex given a set of binary protein-protein or RNA/DNA-protein interactions. This approach is performed by means of a recursive function. When the program is executed, the recursive function will loop iteratively through the list of files present in the input directory. Then, it will perform all the possible superimpositions between the two chains from the sample structure and all the chains from the reference file searching for the best superimposition model. After that, in each iteration it will add a chain and it will repeat the process until it builds a macro complex. This superimposition is only made if the number of CA, for proteins, or C4’, for nucleic acids, atoms, obtained with the ```Key_atom_retriever``` function, is the same in both chains, and also if they are the same kind of molecule, i.e., DNA, RNA or PROTEIN.
+ANAMM builds a macro-molecular complex given a set of binary protein-protein or RNA/DNA-protein interactions. This approach is performed by means of a recursive function. When the program is executed, the recursive function will loop iteratively through the list of files present in the input directory. Then, it will perform all the possible superimpositions between the two chains from the sample structure and all the chains from the reference file searching for the best superimposition model. After that, in each iteration it will add a chain and it will repeat the process until it builds a macro complex. This superimposition is only made if the number of CA, for proteins, or C4’, for nucleic acids, atoms, obtained with the ```get_key_atom``` function, is the same in both chains, and also if they are the same kind of molecule, i.e., DNA, RNA or PROTEIN.
 
 The algorithm creates a superimposition instance with the two chains as a value. This instance is sorted by the RMSD treshold, as well as a boolean that informs of whether a common chain between the reference and the sample structure has been found. 
 If the boolean is false, i.e., no common chain between reference and sample structure has been found, or the smallest RMSD is greater than the threshold, the currently processed file is popped from the list and appended to the end of it, this way, it will be processed in a future iteration. 
@@ -130,9 +130,9 @@ Command-line arguments
 - ```-i```, ```--indir```: this argument is required can either be an absolute or relative path of the input folder containing all the binary-interaction PDB files that are going to be used to build the complex.
 - ```-o```, ```--outdir```: this argument is optional and if set, all the output files will be saved in this folder. If not set, by default, the output files will be saved in a folder named: input_foldername_output.
 - ```-v```, ```--verbose```: this argument is optional and will print the progression log in the standard error if set.
-- ```-sto```, ```--stoichiometry```: this argument is optional and if set indicates the number of chains the user wants the final complex to have. If not, it will take a value of 100 by default.
-- ```rmsd```, ```--rmsd_threshold```: this argument is optional and if set, the RMSD threshold will take its value. If not, it will take a value of 0.3 by default.
-- ```cl```, ```--clashes_theshold```: this argument is optional and if set, the clashes threshold will take its value. If not, it will take a value of 30 by default.
+- ```-sto```, ```--stoichiometry```: Argument that allows you to indicate the stoichiometry desired for the target complex, indicating the final number of chains that you macrocomplex have. If not, it will take a value of 100 by default.
+- ```rmsd```, ```--rmsd_threshold```: If set, the RMSD threshold for considering a superimposition as correct will take this value. If not, it will be 0.3 by default. WARNING: Argument misuse could affect the final output.  
+- ```cl```, ```--clashes_theshold```: If set, the clashes threshold will take its value. If not, it will take a value of 30 by default. "WARNING: Argument misuse could affect the final output.
 
 ### CODE LIMITATIONS
 - ANAMM process better small macrocomplexes than bigger ones because the recursive algorithm that has. When it has to build a big macrocomplex, it took some time to do it
