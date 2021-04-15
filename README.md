@@ -2,6 +2,8 @@
 https://user-images.githubusercontent.com/74412173/114835586-0525fa00-9dd2-11eb-8f33-3b80a625194b.mp4
 
 # ANAMM (Amino-Nucleic Acid Macrocomplex Modeler)
+## TABLE OF CONTENTS
+- [DESCRIPTION](##DESCRIPTION)
 ## DESCRIPTION
 The function of this program is to reconstruct biological macrocomplexes. It can build them using protein-DNA/RNA interactions as well as protein-protein interactions. The input is a set of binary interactions and the desired number of chains of the target complex. Moreover, you can add extra arguments, as RMSD treshold. This program needs as input the folder where the input files are, and you have to select an output directory to save the output files. If you do not select the output folder, the program automatically will create one.
 
