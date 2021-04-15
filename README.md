@@ -43,11 +43,10 @@ This does not mean that one approach is better than the other. All approaches ha
 ## REQUERIMENTS
 ### MANDATORY
 The following versions of packages/modules must be installed in order to run our program properly:
-- Python v3.6.7 (Sys, Os, Timeit)
-- Biopython v1.73
+- Python v3.8.3 (Notice this is the version we used, older versions migth also work)
+       modules: Sys, Os.
+- Biopython v1.78
 - Argparse v1.1
-- Logging v0.5.1.2
-- Re v2.2.1
        
 ### OPTIONAL (VERY RECOMMENDED) 
 In order to be able to use the optimization algorithm, the user must download modeller package. MODELLER is a package that is used for homology or comparative modeling of protein three-dimensional structures. To download MODELLER using conda you have to do the following: 
